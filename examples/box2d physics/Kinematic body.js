@@ -78,7 +78,7 @@ function update() {
 function switchDirection() {
     
     // Reverse the direction of the upper kinematic body
-    kinematic1.body.velocity.x = kinematic1.body.velocity.x;
+    kinematic1.body.velocity.x = -kinematic1.body.velocity.x;
     
 }
 

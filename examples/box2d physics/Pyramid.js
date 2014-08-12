@@ -91,7 +91,7 @@ function render() {
 		var i = spritesToDebug.length;
         while (i--)
         {
-			game.debug.body(spritesToDebug[i].sprite, Phaser.Color.getWebRGB(spritesToDebug[i].color));
+		game.debug.body(spritesToDebug[i].sprite, Phaser.Color.getWebRGB(spritesToDebug[i].color));
         }
 	}
 	else if ( debugType == _debugType.WORLD ) {
@@ -99,6 +99,6 @@ function render() {
 	}
 	else if ( debugType == _debugType.INFO ) {
 		game.debug.bodyInfo(firstaidSprite, 5, 40);
-		game.debug.body(firstaidSprite, 'rgba(0,255,0,0.4)');
+		game.debug.body(firstaidSprite, 'rgb(0,255,0)');
 	}
 }

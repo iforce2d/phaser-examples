@@ -39,10 +39,10 @@ function render() {
 	game.debug.body(platformSprite);
 	
 	// Make falling block more red depending on vertical speed	
-	var red = -blockSprite.body.velocity.y * 0.5;
+	var red = blockSprite.body.velocity.y * 0.5;
 	red = Math.min(Math.max(red, 0), 255);
 	var red = Math.floor(red);
 	var blue = 255 - red;
-	game.debug.body(blockSprite, 'rgba('+red+',0,'+blue+',0.5)');
+	game.debug.body(blockSprite, 'rgb('+red+',0,'+blue+')');
 	
 }

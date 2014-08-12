@@ -133,6 +133,6 @@ function render() {
 	}
 	else if ( debugType == _debugType.INFO ) {
 		game.debug.bodyInfo(topSprite, 5, 40);
-		game.debug.body(topSprite, 'rgba(0,255,0,0.4)');
+		game.debug.body(topSprite, 'rgb(0,255,0)');
 	}
 }
