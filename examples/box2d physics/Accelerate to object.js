@@ -39,7 +39,7 @@ function update() {
 
     if (cursors.left.isDown) {leader.body.rotateLeft(200);}   //leader movement
     else if (cursors.right.isDown){leader.body.rotateRight(200);}
-    else {leader.body.setZeroRotation();}
+    else {leader.body.setZeroRotation();}    
     if (cursors.up.isDown){leader.body.thrust(150);}
     else if (cursors.down.isDown){leader.body.reverse(150);}    
 };

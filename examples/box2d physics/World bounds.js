@@ -5,6 +5,7 @@ function preload() {
 
     game.load.image('stars', 'assets/misc/starfield.jpg');
     game.load.image('ball', 'assets/sprites/shinyball.png');
+    game.load.image('firstaid', 'assets/sprites/firstaid.png');
     game.load.spritesheet('ship', 'assets/sprites/humstar.png', 32, 32);
 
 }
@@ -16,11 +17,10 @@ var cursors;
 function create() {
     
     game.physics.startSystem(Phaser.Physics.BOX2D);
-    game.physics.box2d.defaultRestitution = 0.9;
+    game.physics.box2d.restitution = 0.9;
     game.physics.box2d.setBoundsToWorld();
 
     starfield = game.add.tileSprite(0, 0, 800, 600, 'stars');
-    starfield.fixedToCamera = true;
 
     balls = game.add.group();
     balls.enableBody = true;
@@ -28,8 +28,11 @@ function create() {
 
     for (var i = 0; i < 50; i++)
     {
-        var ball = balls.create(game.world.randomX, game.world.randomY, 'ball');
-        ball.body.setCircle(16);
+        var sprite = balls.create(game.world.randomX, game.world.randomY, i % 2 == 0 ? 'ball':'firstaid');
+	if (i % 2 == 0)
+	    sprite.body.setCircle(16);
+	else
+	    sprite.body.collideWorldBounds = false;
     }
 
     ship = game.add.sprite(200, 200, 'ship');
@@ -43,11 +46,10 @@ function create() {
     ship.body.fixedRotation = true;
     ship.body.setCircle(28);
 
-    game.camera.follow(ship);
-
     cursors = game.input.keyboard.createCursorKeys();
     
-    game.add.text(5, 5, 'Use arrow keys to move.', { fill: '#ffffff', font: '14pt Arial' });
+    game.add.text(5,  5, 'Use arrow keys to move.', { fill: '#ffffff', font: '14pt Arial' });
+    game.add.text(5, 25, 'Rectangle shapes are set to ignore world boundaries.', { fill: '#ffffff', font: '14pt Arial' });
     
 }
 
@@ -72,17 +74,6 @@ function update() {
     {
         ship.body.moveDown(200);
     }
-
-    if (!game.camera.atLimit.x)
-    {
-        starfield.tilePosition.x += -ship.body.velocity.x * game.time.physicsElapsed;
-    }
-
-    if (!game.camera.atLimit.y)
-    {
-        starfield.tilePosition.y += -ship.body.velocity.y * game.time.physicsElapsed;
-    }
-
 }
 
 function render() {
