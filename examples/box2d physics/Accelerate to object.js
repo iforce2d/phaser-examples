@@ -63,5 +63,5 @@ function accelerateToObject(follower, leader, speed) {
     // Apply a force toward target
     dx *= 0.0001 * speed;
     dy *= 0.0001 * speed;
-    follower.body.applyForce( -dx, -dy );
+    follower.body.applyForce( dx, dy );
 }

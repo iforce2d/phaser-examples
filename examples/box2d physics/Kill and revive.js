@@ -9,7 +9,7 @@ function preload() {
 }
 
 var sprite;
-var littleBoxes;
+var littleBoxes = [];
 var cursors;
 
 function create() {
@@ -29,7 +29,6 @@ function create() {
     sprite.body.gravityScale = 0;
 
     // Add some more sprites to show how the body is inactive when killed.
-    littleBoxes = [];
     for (var i = 0; i < 10; i++) {
 	var ballSprite = game.add.sprite(Math.random() * 800, Math.random * -200, 'firstaid');
 	game.physics.box2d.enable(ballSprite);

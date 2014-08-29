@@ -59,6 +59,7 @@ function create() {
 		revoluteJoint2 = game.physics.box2d.revoluteJoint(spriteA, spriteB);		
 	}
 	
+	// First gear joint
 	{
 		// joint1, joint2, ratio
 		game.physics.box2d.gearJoint(revoluteJoint1, revoluteJoint2, 1);
@@ -98,6 +99,7 @@ function create() {
 		revoluteJoint4 = game.physics.box2d.revoluteJoint(spriteA, spriteB);
 	}
 	
+	// Second gear joint
 	{
 		// joint1, joint2, ratio
 		game.physics.box2d.gearJoint(revoluteJoint3, revoluteJoint4, -3);
@@ -117,7 +119,7 @@ function create() {
 		game.physics.box2d.enable(spriteB);
 		
 		// bodyA, bodyB, axisX, axisY, ax, ay, bx, by, motorSpeed, motorForce, motorEnabled, lowerLimit, upperLimit, limitEnabled
-		prismaticJoint = game.physics.box2d.prismaticJoint(spriteA, spriteB, 1, 0, 0, 0, 0, 0, 0, 0, false, -100, 100, true);
+		prismaticJoint = game.physics.box2d.prismaticJoint(spriteA, spriteB, 1, 0, 0, 0, 0, 0, 0, 0, false);
 		
 		bodyAs.push(spriteA.body);
 	}
@@ -137,6 +139,7 @@ function create() {
 		revoluteJoint5 = game.physics.box2d.revoluteJoint(spriteA, spriteB);
 	}
 	
+	// Third gear joint
 	{
 		// joint1, joint2, ratio
 		game.physics.box2d.gearJoint(prismaticJoint, revoluteJoint5, 0.5);
@@ -167,7 +170,7 @@ function update() {
 		codeCaption.text = 'game.physics.box2d.gearJoint(revoluteJoint1, revoluteJoint2, 1)';
 	}
 	else if ( bodyAs[1].containsPoint(game.input.mousePointer) ) {
-		codeCaption.text = 'game.physics.box2d.gearJoint(revoluteJoint1, revoluteJoint2, -3)';
+		codeCaption.text = 'game.physics.box2d.gearJoint(revoluteJoint3, revoluteJoint4, -3)';
 	}
 	else if ( bodyAs[2].containsPoint(game.input.mousePointer) ) {
 		codeCaption.text = 'game.physics.box2d.gearJoint(prismaticJoint, revoluteJoint5, 0.5)';

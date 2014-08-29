@@ -51,10 +51,10 @@ function create() {
     ship.body.setCircle(28);
 
     // A body specific callback.
-    ship.body.setBodyCallback(enemy, enemyCallback, this);
+    ship.body.setBodyContactCallback(enemy, enemyCallback, this);
     
     // A callback to match fixtures of category 2 (bitmask!)
-    ship.body.setCategoryCallback(2, healthCallback, this);
+    ship.body.setCategoryContactCallback(2, healthCallback, this);
     
     cursors = game.input.keyboard.createCursorKeys();
     

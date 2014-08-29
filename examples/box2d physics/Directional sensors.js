@@ -60,10 +60,10 @@ function create() {
     belowSensor.SetSensor(true);
     
     // Set up callbacks so we are informed when sensors touch something
-    ship.body.setFixtureCallback(leftSensor,  leftCallback,  this);
-    ship.body.setFixtureCallback(rightSensor, rightCallback, this);
-    ship.body.setFixtureCallback(aboveSensor, aboveCallback, this);
-    ship.body.setFixtureCallback(belowSensor, belowCallback, this);
+    ship.body.setFixtureContactCallback(leftSensor,  leftCallback,  this);
+    ship.body.setFixtureContactCallback(rightSensor, rightCallback, this);
+    ship.body.setFixtureContactCallback(aboveSensor, aboveCallback, this);
+    ship.body.setFixtureContactCallback(belowSensor, belowCallback, this);
     
     cursors = game.input.keyboard.createCursorKeys();
     
