@@ -132,7 +132,8 @@ function render() {
 		game.debug.box2dWorld();
 	}
 	else if ( debugType == _debugType.INFO ) {
-		game.debug.bodyInfo(topSprite, 5, 40);
+		
+		game.debug.bodyInfo(topSprite, topSprite.x + 20, topSprite.y + 20);
 		game.debug.body(topSprite, 'rgb(0,255,0)');
 	}
 }

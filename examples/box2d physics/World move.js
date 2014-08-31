@@ -18,7 +18,7 @@ function create() {
     game.world.setBounds(0, 0, 1600, 1200);
 
     game.physics.startSystem(Phaser.Physics.BOX2D);
-    game.physics.box2d.defaultRestitution = 0.9;
+    game.physics.box2d.restitution = 0.9;
 
     starfield = game.add.tileSprite(0, 0, 800, 600, 'stars');
     starfield.fixedToCamera = true;

@@ -98,7 +98,7 @@ function render() {
 		game.debug.box2dWorld();
 	}
 	else if ( debugType == _debugType.INFO ) {
-		game.debug.bodyInfo(firstaidSprite, 5, 40);
+		game.debug.bodyInfo(firstaidSprite, firstaidSprite.x + 20, firstaidSprite.y + 20, 'rgb(192,192,192)');
 		game.debug.body(firstaidSprite, 'rgb(0,255,0)');
 	}
 }
